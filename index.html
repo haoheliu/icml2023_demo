@@ -15,8 +15,18 @@
   <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
   <title>AudioLDM: Text-to-Audio Generation with Latent Diffusion Models - Speech Research</title>
+  <style>
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .image {
+      width: 30%;
+      height: auto;
+    }
+  </style>
 </head>
-
 
 <body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
   <font size="5">
@@ -25,7 +35,6 @@
       <header role="banner">
 
       </header>
-
 
       <main role="main">
         <article itemscope itemtype="https://schema.org/BlogPosting">
@@ -37,6 +46,26 @@
           <br></br>
           <p style="line-height:1" align="center"><b>
               <font color="061E61">Anonymous authors</font></b>
+
+          <hr>
+          <h1>Rebuttal Materials</h1>
+          <h2 id="speed_comparison">Speed comparison</h2>
+          <div class="image-row">
+            <img src="speed_compare/AudioLDM-S.png" alt="Image 2" class="image">
+            <img src="speed_compare/AudioLDM-L.png" alt="Image 1" class="image">
+            <img src="speed_compare/timing.png" alt="Image 3" class="image">
+          </div>
+          <p>The above three graphs show the time cost when generating 10 seconds of audio (speed is measured on a single A100 GPU), with 
+            <ul>
+              <li>Different batch sizes</li>
+              <li>Different sampling steps</li>
+              <li>With/Without classifier-free guidance</li>
+            </ul>
+            As shown in the left-most graph, AudioLDM-Small can generate eight ten-second-long audios within ten seconds without classifier-free guidance. With classifier-free guidance, AudioLDM-Small can generate eight ten-second-long audios with 150 DDIM steps. </p>
+            <p>As shown in the right-most graph, our model is faster than the DiffSound on different batchsize. Our model can generate eight ten-second-long audios with 20 seconds while DiffSound needs more than 40 seconds.</p>
+            <p>Since AudioGen has not open-sourced yet, we did not perform speed comparison with AudioGen.</p>
+          <hr>
+
 
           <section itemprop="entry-text">
             <br>
@@ -113,21 +142,6 @@
               </tbody>
             </table>
 
-            <!--
-<br></br>
-<h2 id="audio-samples"><font color="000093">Audio Samples</font></h2>
-<p><font color="061E61"> Our method is shown in Figure 1. The below audio samples show the comparison between Recordings, ground-truth (GT) mel + Vocoder, FastSpeech 2, DiffGAN-TTS, DiffSpeech, ProDiff, GradTTS, ResGrad-4 (Our method), and ResGrad-50 (Our method). Three samples are randomly selected from the test dataset of LJSpeech, LibriTTS, and VCTK. Details are illustrated as follows: </font></p>
-<ul style="list-style-type:square">
--->
-            <!--
-<li><font color="061E61"> For each dataset, the same HiFi-GAN vocoder pretrained on GT mel is used for all methods. </font></li>
--->
-            <!--<li>
-<font color="061E61"> Each generated sample has been normalized, and the raw recording is shown in Recordings. </font></li>
--->
-            <!--<li>
-<li><font color="061E61"> Our method ResGrad uses FastSpeech 2 as the initial predictor for estimating mel-spectrogram. </font></li>
--->
 
 
             <br></br>
